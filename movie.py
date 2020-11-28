@@ -39,8 +39,37 @@ while True:
                     print(timeList[i-1])
                     List = input("\n시간을 선택해주세요 : ")
                     if List in timeList[i-1]:
-                        print(List, "을 선택하셨습니다.")
-                        break # 4주를 위한 정지
+                        print(List, "을 선택하셨습니다.\n")
+                        Choice = input("예매를 진행하시겠습니까? \n1.예 2.아니오\n")
+                        if Choice == '1':
+                            adult = 12000
+                            youth = 7000
+                            while(1):
+                                print("\n인원을 선택해주세요") # 숫자만 눌렀다고 가정
+                                n = int(input("성인 인원수를 입력해주세요: "))
+                                N = int(input("청소년 인원수을 입력해주세요: "))
+                                print("\n성인", n,"명,","청소년", N, "명을 선택하셨습니다.")
+                                print("금액은", adult*n,"," ,youth*N, "원 입니다.")
+                                print("총 금액은", adult*n + youth*N, "원 입니다.\n")
+                                Choice = input("예매를 진행하시겠습니까? \n1.예 2.아니오\n")
+                                if Choice == '1':
+                                    seatlist = [['o', 'o', 'o'],
+                                                ['o', 'o', 'o'],
+                                                ['o', 'o', 'o']]
+                                    print("좌석을 선택해 주세요.") # 4주차는 좌석 시각화까지
+                                    for i in range(3):
+                                        print(i*3+1, i*3+2, i*3+3)
+                                        break # 5주차를 위한 멈춤
+                                elif Choice == '2':
+                                    print("이전메뉴로 돌아갑니다.\n")
+                                    continue
+                                else:
+                                    print("잘못 입력하셨습니다.")
+                        elif Choice == '2':
+                            print("이전메뉴로 돌아갑니다.\n")
+                            continue
+                        else:
+                            print("잘못 입력하셨습니다.")
                     else:
                         print("\n맞는 시간을 입력하세요")
                         continue
